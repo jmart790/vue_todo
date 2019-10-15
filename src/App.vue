@@ -14,30 +14,15 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,400,700&display=swap");
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   margin: 0;
   padding: 0;
 }
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.4;
-  /* display: grid;
-  place-items: center;
-  width: fit-content;
-
-  margin: 2rem; */
-}
-
-.btn {
-  display: inline-block;
-  border: none;
-  background: #555;
-  color: #fff;
-  padding: 7px 20px;
-  cursor: pointer;
-}
-.btn:hover {
-  background: #666;
+  margin: 5% auto;
+  width: 90vw;
+  font-family: "Raleway", sans-serif;
 }
 </style>
