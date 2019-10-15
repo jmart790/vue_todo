@@ -1,8 +1,16 @@
 <template>
   <div class="todo-item">
-    <input type="checkbox" class="complete-btn" v-model="todo.completed" />
-    <div :class="{'is-complete':todo.completed}">{{todo.title}}</div>
-    <button @click="$emit('del-todo', todo.id)" class="del">x</button>
+    <button
+      class="toggle-check"
+      :class=" todo.completed ? 'checked' : 'unchecked' "
+      @click="$emit('toggle-complete', todo.id)"
+    >
+      <i class="fas fa-check"></i>
+    </button>
+    <div class="todo-title" :class="{'is-complete':todo.completed}">{{todo.title}}</div>
+    <button @click="$emit('del-todo', todo.id)" class="del">
+      <i class="fas fa-minus"></i>
+    </button>
   </div>
 </template>
 
@@ -18,35 +26,57 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
 .todo-item {
-  background: #f4f4f4;
-  padding: 10px;
-  border-bottom: 1px #ccc dotted;
-  display: flex;
-  justify-content: space-between;
-}
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  margin: 10px 5px;
+  border-radius: 25px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.187);
 
-.is-complete {
-  text-decoration: line-through;
-}
-.complete-btn {
-  border: solid 1px rgba(128, 128, 128, 0.253);
-  border-radius: 50%;
-  background: white;
-  color: #6bb0ff;
-  font-size: 1rem;
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-}
-.del {
-  background: #ff0000;
-  color: #fff;
-  border: none;
-  padding: 5px 9px;
-  border-radius: 50%;
-  cursor: pointer;
-  float: right;
+  .toggle-check,
+  .del {
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.187);
+    outline: none;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+
+  .toggle-check {
+    background-image: linear-gradient(120deg, #d4fc79 0%, #6fdb7d 100%);
+  }
+  .toggle-check:hover {
+    opacity: 1;
+    box-shadow: 2px 2px 4px rgba(85, 237, 65, 0.187);
+  }
+  .checked {
+    opacity: 1;
+  }
+  .unchecked {
+    box-shadow: none;
+    opacity: 0.4;
+  }
+
+  .todo-title {
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .is-complete {
+    font-weight: 100;
+    opacity: 0.5;
+  }
+  .del {
+    background-image: linear-gradient(to left, #f43737 0%, #ff9c7e 100%);
+  }
+  .del:hover {
+    box-shadow: 2px 2px 4px rgba(255, 0, 0, 0.187);
+  }
 }
 </style>
