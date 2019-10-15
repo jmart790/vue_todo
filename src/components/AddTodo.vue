@@ -2,7 +2,9 @@
   <div>
     <form @submit="addTodo">
       <input type="text" v-model="title" placeholder="Add Todo..." />
-      <input type="submit" value="Submit" class="btn" />
+      <button type="submit" value="Submit" class="btn">
+        <i class="fas fa-plus" />
+      </button>
     </form>
   </div>
 </template>
@@ -30,15 +32,40 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 form {
-  display: flex;
-}
-input[type="text"] {
-  flex: 10;
-  padding: 5px;
-}
-input[type="submit"] {
-  flex: 2;
+  margin: 5px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  // border: 1px solid blue;
+  border-radius: 25px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.287);
+
+  input[type="text"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    font-size: 1.25rem;
+    padding: 5px 15px;
+    border: none;
+    border-radius: 25px;
+  }
+  button[type="submit"] {
+    background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    height: 2.5rem;
+    width: 2.5rem;
+    font-size: 1.25rem;
+    transition: 0.3s;
+
+    :hover,
+    :focus {
+      cursor: pointer;
+      outline: none;
+    }
+  }
 }
 </style>
