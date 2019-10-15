@@ -1,10 +1,6 @@
 <template>
   <header class="header">
     <h1>TodoList</h1>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link>|
-      <router-link to="/about">About</router-link>
-    </div>-->
   </header>
 </template>
 
@@ -20,6 +16,7 @@ export default {
   color: #fff;
   text-align: center;
   padding: 10px;
+  border-radius: 25px 25px 0 0;
 }
 .header a {
   color: #fff;
