@@ -1,7 +1,11 @@
 <template>
   <div>
     <div :key="todo.id" v-for="todo in todosFiltered">
-      <TodoItem :todo="todo" v-on:del-todo="$emit('del-todo', todo.id)" />
+      <TodoItem
+        :todo="todo"
+        v-on:del-todo="$emit('del-todo', todo.id)"
+        v-on:toggle-complete="$emit('toggle-complete', todo.id)"
+      />
     </div>
   </div>
 </template>
