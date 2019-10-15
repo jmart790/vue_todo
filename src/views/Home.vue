@@ -1,11 +1,16 @@
 <template>
-  <div id="app">
-    <ClearCompleted :todos="todos" v-on:clear-completed="clearCompleted" />
-    <FilterTodos :filter="filter" v-on:filter-todos="filterTodos" />
-    <CheckAll :anyRemaining="anyRemaining" v-on:check-all="checkAllTodos" />
-    <Counter :remaining="remaining" />
-    <AddTodo v-on:add-todo="addTodo" />
-    <Todos :todosFiltered="todosFiltered" v-on:del-todo="deleteTodo" />
+  <div id="app" class="app-body">
+    <ClearCompleted class="clear" :todos="todos" v-on:clear-completed="clearCompleted" />
+    <FilterTodos class="filter" :filter="filter" v-on:filter-todos="filterTodos" />
+    <CheckAll class="check-all" :anyRemaining="anyRemaining" v-on:check-all="checkAllTodos" />
+    <Counter class="counter" :remaining="remaining" />
+    <AddTodo class="add-todo" v-on:add-todo="addTodo" />
+    <Todos
+      class="todo-list"
+      :todosFiltered="todosFiltered"
+      v-on:del-todo="deleteTodo"
+      v-on:toggle-complete="toggleComplete"
+    />
   </div>
 </template>
 
@@ -61,6 +66,11 @@ export default {
     addTodo(newTodo) {
       this.todos = [newTodo, ...this.todos];
     },
+    toggleComplete(id) {
+      this.todos = this.todos.map(todo => {
+        return todo.id === id ? { ...todo, completed: !todo.completed } : todo;
+      });
+    },
     checkAllTodos() {
       this.todos.forEach(todo => (todo.completed = event.target.checked));
     },
@@ -74,26 +84,46 @@ export default {
 };
 </script>
 
-<style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.4;
-}
+<style lang="scss">
+.app-body {
+  height: 75vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: max-content 1fr 1fr 1fr;
+  grid-template-areas:
+    "input input input remaining"
+    "todos todos todos filters"
+    "todos todos todos check-all"
+    "todos todos todos clear-complete";
+  border: 2px solid black;
+  border-radius: 0 0 25px 25px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.287);
 
-.btn {
-  display: inline-block;
-  border: none;
-  background: #555;
-  color: #fff;
-  padding: 7px 20px;
-  cursor: pointer;
-}
-.btn:hover {
-  background: #666;
+  .counter {
+    grid-area: remaining;
+    border: 2px solid black;
+  }
+  .add-todo {
+    grid-area: input;
+    border: 2px solid black;
+  }
+  .todo-list {
+    // z-index: -1;
+    grid-area: todos;
+    border: 2px solid black;
+    overflow: scroll;
+  }
+  .filter {
+    grid-area: filters;
+    border: 2px solid black;
+  }
+  .check-all {
+    grid-area: check-all;
+    border: 2px solid black;
+  }
+  .clear {
+    grid-area: clear-complete;
+    border: 2px solid black;
+  }
 }
 </style>
