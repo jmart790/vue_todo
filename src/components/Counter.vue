@@ -3,7 +3,7 @@
     <div class="count-container">
       <div class="todo-count" :class="remainingColor">{{remaining}}</div>
 
-      <div class="todo- text">left!</div>
+      <div class="todo-text">left!</div>
     </div>
   </div>
 </template>
@@ -45,7 +45,9 @@ export default {
     place-items: center;
     border-radius: 50%;
     margin: 0 0.5rem;
-    color: rgba(0, 0, 0, 0.79);
+    color: rgba(0, 0, 0, 0.899);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.084);
+    // box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.187);
   }
   .none {
     background-image: linear-gradient(120deg, #d4fc79 0%, #6fdb7d 100%);
