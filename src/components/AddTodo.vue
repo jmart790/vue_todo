@@ -60,11 +60,14 @@ form {
     width: 2.5rem;
     font-size: 1.25rem;
     transition: 0.3s;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.187);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.084);
+    outline: none;
 
     :hover,
     :focus {
       cursor: pointer;
-      outline: none;
+      box-shadow: 2px 2px 4px rgba(46, 156, 225, 0.187);
     }
   }
 }
