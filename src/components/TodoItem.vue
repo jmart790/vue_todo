@@ -45,9 +45,11 @@ export default {
     cursor: pointer;
     width: 1.75rem;
     height: 1.75rem;
+    transition: 0.3s;
   }
 
-  .toggle-check {
+  .toggle-check,
+  .toggle-check:hover {
     background-image: linear-gradient(120deg, #d4fc79 0%, #6fdb7d 100%);
   }
   .toggle-check:hover {
@@ -55,17 +57,20 @@ export default {
     box-shadow: 2px 2px 4px rgba(85, 237, 65, 0.187);
   }
   .checked {
-    opacity: 1;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.084);
   }
-  .unchecked {
-    box-shadow: none;
-    opacity: 0.4;
+  .unchecked,
+  .del {
+    color: rgba(255, 255, 255, 0.5);
+    background-image: linear-gradient(120deg, #e3e3e2 0%, #dadcda 100%);
   }
 
   .todo-title {
     margin-left: 1rem;
     display: flex;
     align-items: center;
+    cursor: default;
   }
 
   .is-complete {
@@ -73,10 +78,19 @@ export default {
     opacity: 0.5;
   }
   .del {
-    background-image: linear-gradient(to left, #f43737 0%, #ff9c7e 100%);
+    // background-image: linear-gradient(to left, #f43737 0%, #ff9c7e 100%);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.084);
   }
   .del:hover {
+    // color: rgba(255, 255, 255, 0.95);
+    // background-image: linear-gradient(to left, #f43737 0%, #ff9c7e 100%);
     box-shadow: 2px 2px 4px rgba(255, 0, 0, 0.187);
+  }
+}
+.todo-item:hover {
+  .del {
+    color: rgba(255, 255, 255, 0.95);
+    background-image: linear-gradient(to left, #f43737 0%, #ff9c7e 100%);
   }
 }
 </style>
