@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <h1>TodoList</h1>
+    <h1>Todo 2.0</h1>
   </header>
 </template>
 
@@ -10,17 +10,12 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .header {
-  background: #333;
-  color: #fff;
+  color: black;
   text-align: center;
   padding: 10px;
   border-radius: 25px 25px 0 0;
-}
-.header a {
-  color: #fff;
-  padding-right: 5px;
-  text-decoration: none;
+  letter-spacing: 2px;
 }
 </style>
