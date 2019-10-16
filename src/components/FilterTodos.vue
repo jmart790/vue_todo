@@ -44,28 +44,30 @@ export default {
     height: 2rem;
     margin: 0.5rem;
     font-size: 0.8rem;
-    color: white;
+    color: rgba(255, 255, 255, 0.95);
     border: none;
     outline: none;
     border-radius: 50%;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.187);
-    background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+    background-image: linear-gradient(120deg, #89f6feb5 0%, #66a6ffb1 100%);
   }
 
   button:hover {
     cursor: pointer;
+    background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    box-shadow: 2px 2px 4px rgba(18, 187, 199, 0.187);
   }
-
   .active {
     background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
   }
 
   label {
-    color: grey;
+    color: black;
+    opacity: 0.4;
   }
   label.bold {
-    color: black;
+    opacity: 1;
   }
 }
 </style>
