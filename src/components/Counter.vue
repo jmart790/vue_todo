@@ -1,10 +1,8 @@
 <template>
-  <div>
-    <div class="count-container">
-      <div class="todo-count" :class="remainingColor">{{remaining}}</div>
+  <div class="count-container">
+    <div class="todo-count" :class="remainingColor">{{remaining}}</div>
 
-      <div class="todo-text">left!</div>
-    </div>
+    <div class="todo-text">left!</div>
   </div>
 </template>
 
@@ -30,24 +28,27 @@ export default {
 
 <style scoped lang="scss">
 .count-container {
-  height: 100%;
+  height: fit-content;
+  padding: 1rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
+  border-radius: 15px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.287);
 
   .todo-count {
-    width: 3rem;
-    height: 3rem;
+    width: 4rem;
+    height: 4rem;
     display: grid;
     place-items: center;
     border-radius: 50%;
     margin: 0 0.5rem;
     color: rgba(0, 0, 0, 0.899);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.084);
-    // box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.187);
+    transition: 0.3s;
   }
   .none {
     background-image: linear-gradient(120deg, #d4fc79 0%, #6fdb7d 100%);

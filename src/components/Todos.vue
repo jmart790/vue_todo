@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="todos-container">
     <div :key="todo.id" v-for="todo in todosFiltered">
       <TodoItem
         :todo="todo"
@@ -22,5 +22,15 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.todos-container {
+  border-radius: 15px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.287);
+  overflow: scroll;
+  overflow-x: hidden;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
 </style>

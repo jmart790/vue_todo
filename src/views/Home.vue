@@ -72,7 +72,11 @@ export default {
       });
     },
     checkAllTodos() {
-      this.todos.forEach(todo => (todo.completed = event.target.checked));
+      if (this.anyRemaining) {
+        this.todos.forEach(todo => (todo.completed = true));
+      } else {
+        this.todos.forEach(todo => (todo.completed = false));
+      }
     },
     filterTodos(filter) {
       this.filter = filter;
@@ -87,43 +91,45 @@ export default {
 <style lang="scss">
 .app-body {
   height: 75vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: max-content 1fr 1fr 1fr;
-  grid-template-areas:
-    "input input input remaining"
-    "todos todos todos filters"
-    "todos todos todos check-all"
-    "todos todos todos clear-complete";
   border: 2px solid black;
   border-radius: 0 0 25px 25px;
   box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.287);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr max-content;
+  grid-template-rows: max-content 1fr 1fr auto minmax(4rem, max-content);
+  grid-template-areas:
+    "input input input remaining"
+    "todos todos todos remaining"
+    "todos todos todos filters"
+    "todos todos todos check-all"
+    "todos todos todos clear-complete";
+  gap: 1rem;
+  padding: 1rem;
 
   .counter {
     grid-area: remaining;
-    border: 2px solid black;
+    // border: 2px solid black;
   }
   .add-todo {
     grid-area: input;
-    border: 2px solid black;
+    // border: 2px solid black;
   }
   .todo-list {
-    // z-index: -1;
     grid-area: todos;
-    border: 2px solid black;
+    // border: 2px solid black;
     overflow: scroll;
   }
   .filter {
     grid-area: filters;
-    border: 2px solid black;
+    // border: 2px solid black;
   }
   .check-all {
     grid-area: check-all;
-    border: 2px solid black;
+    // border: 2px solid black;
   }
   .clear {
     grid-area: clear-complete;
-    border: 2px solid black;
+    // border: 2px solid black;
   }
 }
 </style>

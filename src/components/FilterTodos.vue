@@ -33,10 +33,13 @@ export default {
 
 <style scoped lang="scss">
 .filter-btns {
-  // padding: 5px;
+  height: fit-content;
+  padding: 0.5rem;
+  border-radius: 15px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.287);
   display: grid;
   align-items: center;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
   grid-template-columns: auto 1fr;
 
   button {
@@ -50,16 +53,19 @@ export default {
     border-radius: 50%;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.187);
-    background-image: linear-gradient(120deg, #89f6feb5 0%, #66a6ffb1 100%);
+    // background-image: linear-gradient(120deg, #89f6feb5 0%, #66a6ffb1 100%);
+    background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    opacity: 0.6;
+    transition: 0.3s;
   }
 
   button:hover {
     cursor: pointer;
-    background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    opacity: 1;
     box-shadow: 2px 2px 4px rgba(18, 187, 199, 0.187);
   }
   .active {
-    background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+    opacity: 1;
   }
 
   label {
