@@ -29,6 +29,8 @@ export default {
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr;
+  border-radius: 15px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.287);
 
   button {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.187);
@@ -43,7 +45,9 @@ export default {
     margin: 0.5rem;
     background-image: linear-gradient(to left, #f43737 0%, #ff9c7e 100%);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.084);
+    transition: 0.3s;
   }
+
   button:hover {
     box-shadow: 2px 2px 4px rgba(255, 0, 0, 0.187);
   }
