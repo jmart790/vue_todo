@@ -20,12 +20,17 @@ export default {
   methods: {
     addTodo(e) {
       e.preventDefault();
-      const newTodo = {
-        id: Date.now(),
-        title: this.title,
-        completed: false
-      };
-      this.$emit("add-todo", newTodo);
+      const todo = this.title.trim();
+      if (todo.length > 0) {
+        const newTodo = {
+          id: Date.now(),
+          title: this.title,
+          completed: false
+        };
+        this.$emit("add-todo", newTodo);
+      } else {
+        alert("Sorry you cannot enter empty to-dos");
+      }
       this.title = "";
     }
   }
@@ -34,10 +39,8 @@ export default {
 
 <style scoped lang="scss">
 form {
-  margin: 5px;
   display: grid;
   grid-template-columns: 1fr auto;
-  // border: 1px solid blue;
   border-radius: 25px;
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.287);
 
