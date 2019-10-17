@@ -30,6 +30,8 @@ export default {
   display: grid;
   align-items: center;
   grid-template-columns: auto 1fr;
+  border-radius: 15px;
+  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.287);
 
   button {
     background-image: linear-gradient(120deg, #d4fc79 0%, #6fdb7d 100%);
@@ -42,14 +44,15 @@ export default {
     width: 2rem;
     height: 2rem;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.187);
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.4);
+    transition: 0.3s;
   }
   button:hover {
     box-shadow: 2px 2px 4px rgba(85, 237, 65, 0.187);
   }
 
   .checked {
-    color: rgba(255, 255, 255, 0.95);
+    color: rgba(255, 255, 255, 1);
   }
 }
 </style>
