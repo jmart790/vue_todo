@@ -21,7 +21,7 @@ export default {
   padding: 0;
 }
 body {
-  margin: 5% auto;
+  margin: 3% auto;
   width: 90vw;
   font-family: "Raleway", sans-serif;
 }
